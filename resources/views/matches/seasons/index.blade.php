@@ -19,7 +19,6 @@
                             </div>
                         </div>
                          <div class="col-lg-12 ">
-                                @include('inc.messages')
                                 <div class="content">
                                     <form method="POST" action="{{ route('seasons.store') }}" enctype="multipart/form-data">
                                         {{ csrf_field() }}
@@ -61,7 +60,7 @@
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
-                        </div>
+                         </div>
 
                     </div>
                     <div class="footer">

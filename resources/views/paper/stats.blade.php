@@ -10,14 +10,15 @@
       </div>
       <div class="modal-body">
             <div class="content">
-                <form method="POST"  class="form-inline m-auto"action="{{ route('statistics') }}" enctype="multipart/form-data">
+                <form method="POST"  class="form-inline m-auto" action="{{ route('statistics') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{method_field('POST')}}
 
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                    <input type="number" name="value" class="form-control" value="{{$set['played'][0]->val}}">  
+                                     <input type="hidden" name="type" value="played">
                             </div>
                         </div>
 
@@ -61,7 +62,8 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                    <input type="number" name="value" class="form-control" value="{{$set['won'][0]->val}}">  
+                                    <input type="hidden" name="type" value="won">
                             </div>
                         </div>
 
@@ -99,7 +101,8 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                     <input type="number" name="value" class="form-control" value="{{$set['lost'][0]->val}}">  
+                                     <input type="hidden" name="type" value="lost">
                             </div>
                         </div>
 
@@ -137,7 +140,8 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                    <input type="number" name="value" class="form-control" value="{{$set['drawn'][0]->val}}">  
+                                    <input type="hidden" name="type" value="drawn">
                             </div>
                         </div>
 
@@ -175,7 +179,8 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                    <input type="number" name="value" class="form-control" value="{{$set['goals'][0]->val}}">  
+                                    <input type="hidden" name="type" value="goals">
                             </div>
                         </div>
 
@@ -213,7 +218,9 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" value="">
+                                   {{ dd($set['points'][0]) }}
+                                    <input type="text" name="value" class="form-control" value="{{$set['points'][0]->val}}">  
+                                    <input type="hidden" name="type" value="points">
                             </div>
                         </div>
 

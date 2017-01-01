@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
 
 class HomeController extends Controller
 {
@@ -23,39 +24,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
+        $set = Setting::all()->groupBy('name');
+        // return $set['played'][0]->val;
+        return view('paper.home', [
+            'set' => $set,
+            'goll' => 5,
+        ]);
     }
 
     public function statistics(Request $request){
        
-        // if ($request->matches_played) {
-        //     # code...
-        // }
-        dd($request);
+        $key = $request->type;
+        $val = $request->value;
+
+        $setting = Setting::add($key,$val);
         
-        switch ($variable) {
-            case 'value':
-                # code...
-                break;
-            case 'value':
-                # code...
-                break;
-            case 'value':
-                # code...
-                break;
-            case 'value':
-                # code...
-                break;
-            case 'value':
-                # code...
-                break;
-            case 'value':
-                # code...
-                break;
-            
-            default:
-                # code...
-                break;
-        }
+        return back()->with('success', 'Update Successful');
     }
 }

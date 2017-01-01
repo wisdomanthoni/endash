@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('paper.home');
-})->name('home');;
+Route::get('/', 'HomeController@index')->name('home');;
 
 //Players Route
 Route::resource('/players', 'PlayersController');
