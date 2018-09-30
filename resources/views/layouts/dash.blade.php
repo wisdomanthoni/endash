@@ -79,7 +79,8 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="/assets/js/dash.js"></script>
-
+    
+   @stack('scripts')
 	<script type="text/javascript">
     	$(document).ready(function(){
 
