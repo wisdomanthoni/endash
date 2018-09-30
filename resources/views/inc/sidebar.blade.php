@@ -6,31 +6,37 @@
     </div>
 
     <ul class="nav">
-        <li class="active">
+        <li class="{{ Request::is('/') ? 'active'  :  ''}}">
             <a href="{{ url('/') }}">
                 <i class="ti-panel"></i>
                 <p>Dashboard</p>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('players') ? 'active'  :  ''}}">
             <a href="{{ url('/players') }}">
                 <i class="ti-user"></i>
                 <p>Players Profile</p>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('articles') ? 'active'  :  ''}}">
             <a href="{{ url('/articles') }}">
                 <i class="ti-notepad"></i>
                 <p>Write Articles</p>
             </a>
         </li>
-        <li>
+        <li class="{{ Request::is('matches') ? 'active'  :  ''}}">
             <a href="table.html">
                 <i class="ti-view-list-alt"></i>
                 <p>Match Fixing</p>
             </a>
         </li>
-        <li>
+         <li class="{{ Request::is('gallery') ? 'active'  :  ''}}">
+            <a href="{{ url('/gallery')}}">
+                <i class="ti-gallery"></i>
+                <p>Gallery</p>
+            </a>
+        </li>
+        <li class="{{ Request::is('notifications') ? 'active'  :  ''}}">
             <a href="notifications.html">
                 <i class="ti-bell"></i>
                 <p>Notifications</p>

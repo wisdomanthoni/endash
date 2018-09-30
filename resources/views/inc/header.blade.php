@@ -10,7 +10,7 @@
             <a class="navbar-brand" href="#">Dashboard</a>
         </div>
         <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
+            <!-- <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="ti-panel"></i>
@@ -38,8 +38,7 @@
                         <p>Settings</p>
                     </a>
                 </li>
-            </ul>
-
+            </ul> -->
         </div>
     </div>
 </nav>
