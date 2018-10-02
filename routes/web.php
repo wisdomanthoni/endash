@@ -15,17 +15,16 @@ Route::get('/', function () {
     return view('paper.home');
 });
 
-Route::get('/players', function () {
-    return view('paper.players');
-});
+//Players Route
+Route::resource('/profile', 'PlayersController');
 
-Route::get('/articles', function () {
-    return view('paper.articles');
-});
 
-Route::get('/matches', function () {
-    return view('paper.matches');
-});
+
+//Articles Route
+Route::get('/articles', 'ArticlesController@index');
+
+//Matches Route
+Route::get('/matches', 'MatchesController@index');
 
 Auth::routes();
 

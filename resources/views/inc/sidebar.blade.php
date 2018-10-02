@@ -12,8 +12,8 @@
                 <p>Dashboard</p>
             </a>
         </li>
-        <li class="{{ Request::is('players') ? 'active'  :  ''}}">
-            <a href="{{ url('/players') }}">
+        <li class="{{ Request::is('profile') ? 'active'  :  ''}}">
+            <a href="{{ url('/profile') }}">
                 <i class="ti-user"></i>
                 <p>Players Profile</p>
             </a>
