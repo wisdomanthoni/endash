@@ -23,6 +23,10 @@ Route::get('/articles', function () {
     return view('paper.articles');
 });
 
+Route::get('/matches', function () {
+    return view('paper.matches');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

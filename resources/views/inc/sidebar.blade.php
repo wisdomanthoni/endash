@@ -18,14 +18,14 @@
                 <p>Players Profile</p>
             </a>
         </li>
-        <li class="{{ Request::is('articles') ? 'active'  :  ''}}">
+        <!-- <li class="{{ Request::is('articles') ? 'active'  :  ''}}">
             <a href="{{ url('/articles') }}">
                 <i class="ti-notepad"></i>
                 <p>Write Articles</p>
             </a>
-        </li>
+        </li> -->
         <li class="{{ Request::is('matches') ? 'active'  :  ''}}">
-            <a href="table.html">
+            <a href="{{ url('/matches')}}">
                 <i class="ti-view-list-alt"></i>
                 <p>Match Fixing</p>
             </a>
@@ -36,11 +36,11 @@
                 <p>Gallery</p>
             </a>
         </li>
-        <li class="{{ Request::is('notifications') ? 'active'  :  ''}}">
-            <a href="notifications.html">
+        <!-- <li class="{{ Request::is('notifications') ? 'active'  :  ''}}">
+            <a href="#">
                 <i class="ti-bell"></i>
                 <p>Notifications</p>
             </a>
-        </li>
+        </li> -->
     </ul>
 </div>
