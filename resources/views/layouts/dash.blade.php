@@ -100,4 +100,7 @@
     	});
 	</script>
 
+    @section('footer')
+        @show
+
 </html>

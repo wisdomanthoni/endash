@@ -46,20 +46,20 @@
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
-                                    <label>Company</label>
-                                    <input type="text" name="company" class="form-control border-input"  placeholder="Company" value="Creative Code Inc.">
+                                    <label>Username</label>
+                                    <input type="text" name="username" class="form-control border-input"  placeholder="Username" >
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" name="username" class="form-control border-input" placeholder="Username">
+                                    <label>Position</label>
+                                    <input type="text" name="position" class="form-control border-input" placeholder="Player Position">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" name="email" class="form-control border-input" placeholder="Email">
+                                    <label>Squad Number</label>
+                                    <input type="number" name="squad_number" class="form-control border-input" placeholder="Squad Number">
                                 </div>
                             </div>
                         </div>
@@ -75,6 +75,15 @@
                                 <div class="form-group">
                                     <label>Last Name</label>
                                     <input type="text" name="last_name" class="form-control border-input" placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email Address</label>
+                                    <input type="email" name="email" class="form-control border-input" placeholder="Email Address">
                                 </div>
                             </div>
                         </div>
@@ -103,8 +112,18 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="number" name="postal_code" class="form-control border-input" placeholder="ZIP Code">
+                                    <label for="date">Date of Birth</label>
+                                    <input type="date" name="date_of_birth"  class="form-control border-input" >
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Previous Club</label>
+                                    <input type="text" name="previous_club"  class="form-control border-input" placeholder="Previous Club">
                                 </div>
                             </div>
                         </div>
@@ -113,10 +132,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>About Me</label>
-                                    <textarea rows="5" name="about_me" class="form-control border-input" placeholder="Here can be your description" value="Mike">Oh so, your weak rhyme
-                                        You doubt I'll bother, reading into it
-                                        I'll probably won't, left to my own devices
-                                        But that's the difference in our opinions.
+                                    <textarea rows="5" name="about_me" class="form-control border-input" placeholder="Here can be your description">
                                     </textarea>
                                 </div>
                             </div>
