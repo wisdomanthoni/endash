@@ -37,7 +37,7 @@
             <div class="card">
                 @include('inc.messages')
                 <div class="header">
-                    <h4 class="title">Create Profile</h4>
+                    <h4 class="title">Edit Profile</h4>
                 </div>
                 <div class="content">
                     <form method="POST" action="{{ route('profile.update', $players->id) }}">

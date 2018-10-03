@@ -30,7 +30,7 @@
                                 <td>{{$player->email}}</td>
                                 <td>{{$player->city}}</td>
                                 <td>{{$player->country}}</td>
-                                <td><a class="btn btn-success" href="">View</a></td>
+                                <td><a class="btn btn-success" href="{{ route('profile.show', $player->id) }}">View</a></td>
                                 <td><a class="btn btn-primary" href="{{ route('profile.edit', $player->id) }}">Edit</a></td>
                                 <td>
                                     <form id="form-data-{{$player->id}}" action='{{ route('profile.destroy', $player->id) }}' method='post' style="display: none;">

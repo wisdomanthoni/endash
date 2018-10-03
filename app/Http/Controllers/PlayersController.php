@@ -74,7 +74,8 @@ class PlayersController extends Controller
      */
     public function show($id)
     {
-
+        $players = Profile::where('id', $id)->get();
+        return view('players.show')->with('players', $players);
     }
 
     /**
