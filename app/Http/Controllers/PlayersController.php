@@ -38,7 +38,6 @@ class PlayersController extends Controller
     {
         $this->validate($request, [
             'position' => 'required',
-            'email' => 'required',
             'name' => 'required',
             'city' => 'required',
             'country' => 'required',
@@ -104,7 +103,6 @@ class PlayersController extends Controller
     {
         $this->validate($request, [
             'position' => 'required',
-            'email' => 'required',
             'name' => 'required',
             'city' => 'required',
             'country' => 'required',
