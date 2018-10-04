@@ -8,7 +8,7 @@
         @include('inc.messages')
         <div class="header">
           <h4 class="title pull-left">Player's List</h4>
-          <a class="pull-right btn btn-info btn-fill" href="{{ route('profile.create') }}">Add New</a>
+          <a class="pull-right btn btn-info btn-fill" href="{{ route('players.create') }}">Add New</a>
         </div>
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
@@ -27,14 +27,14 @@
               @foreach($players as $player)
               <tr>
                 <td>{{$loop->index + 1}}</td>
-                <td>{{$player->username}}</td>
+                <td>{{$player->name}}</td>
                 <td>{{$player->position}}</td>
                 <td>{{$player->squad_number}}</td>
                 <td>{{$player->previous_club}}</td>
-                <td><a class="btn btn-success" href="{{ route('profile.show', $player->id) }}">View</a></td>
-                <td><a class="btn btn-primary" href="{{ route('profile.edit', $player->id) }}">Edit</a></td>
+                <td><a class="btn btn-success" href="{{ route('players.show', $player->id) }}">View</a></td>
+                <td><a class="btn btn-primary" href="{{ route('players.edit', $player->id) }}">Edit</a></td>
                 <td>
-                  <form id="form-data-{{$player->id}}" action='{{ route('profile.destroy', $player->id) }}' method='post' style="display: none;">
+                  <form id="form-data-{{$player->id}}" action="{{ route('players.destroy', $player->id) }}" method="post" style="display: none;">
                     {{csrf_field()}}
                     {{method_field('DELETE')}}
                   </form>

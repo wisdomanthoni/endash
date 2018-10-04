@@ -1,6 +1,6 @@
 @extends('layouts.dash')
 
-@section('profile_css')
+@section('css')
 <link rel="stylesheet" type="text/css" href="{{ asset('/assets/css/profile.css') }}">
 @endsection
 

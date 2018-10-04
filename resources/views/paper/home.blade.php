@@ -3,107 +3,161 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                     <div class="content">
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-warning text-center">
-                                    <i class="ti-server"></i>
+                                    <i class="ti-layout-grid2"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Capacity</p>
-                                    105GB
+                                    <p>Matches Played</p>
+                                     24
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr />
-                            <div class="stats">
-                                <i class="ti-reload"></i> Updated now
-                            </div>
+                            <button class="btn btn-sm btn-warning stats" data-toggle="modal" onclick="toggle('played')">
+                                <i class="ti-pencil"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+            <div class="col-lg-4 col-sm-6">
                 <div class="card">
                     <div class="content">
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-success text-center">
-                                    <i class="ti-wallet"></i>
+                                    <i class="ti-stats-up"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Revenue</p>
-                                    $1,345
+                                    <p>Matches Won</p>
+                                     9
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr />
-                            <div class="stats">
-                                <i class="ti-calendar"></i> Last day
-                            </div>
+                            <button class="btn btn-success btn-sm stats" onclick="toggle('won')">
+                                <i class="ti-pencil"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+           <div class="col-lg-4 col-sm-6">
                 <div class="card">
                     <div class="content">
                         <div class="row">
                             <div class="col-xs-5">
-                                <div class="icon-big icon-danger text-center">
-                                    <i class="ti-pulse"></i>
+                                <div class="icon-big icon-error text-center">
+                                    <i class="ti-stats-down"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Errors</p>
-                                    23
+                                    <p>Matches Lost</p>
+                                     9
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr />
-                            <div class="stats">
-                                <i class="ti-timer"></i> In the last hour
-                            </div>
+                            <button class="btn btn-error btn-sm stats" onclick="toggle('lost')">
+                                <i class="ti-pencil"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6">
+           <div class="col-lg-4 col-sm-6">
                 <div class="card">
                     <div class="content">
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-info text-center">
-                                    <i class="ti-twitter-alt"></i>
+                                    <i class="ti-line-double"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Followers</p>
-                                    +45
+                                    <p>Matches Drawn</p>
+                                     9
                                 </div>
                             </div>
                         </div>
                         <div class="footer">
                             <hr />
-                            <div class="stats">
-                                <i class="ti-reload"></i> Updated now
-                            </div>
+                            <button class="btn btn-info btn-sm stats" onclick="toggle('drawn')" data-target="#drawn">
+                                <i class="ti-pencil"></i>
+                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
+           </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-warning text-center">
+                                    <i class="ti-pulse"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Goals Scored</p>
+                                     9
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <hr />
+                            <button class="btn btn-warning btn-sm stats" onclick="toggle('goals')">
+                                <i class="ti-pencil"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="col-lg-4 col-sm-6">
+                <div class="card">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="icon-big icon-success text-center">
+                                    <i class="ti-upload"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-7">
+                                <div class="numbers">
+                                    <p>Points</p>
+                                     9
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <hr />
+                            <button class="btn btn-success btn-sm stats" onclick="toggle('points')">
+                                <i class="ti-pencil"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+           </div>     
         </div>
+
+        @include('paper.stats')
         <div class="row">
 
             <div class="col-md-12">
@@ -177,4 +231,33 @@
             </div>
         </div>
     </div>
+@endsection
+
+@push('scripts')
+<script>
+   function toggle(modal){
+        var m = document.getElementById(modal);
+        m.style.display = "block";
+        m.classList.add('open');
+   }
+
+   function closeModal(modal){
+        var m = document.getElementById(modal);
+        console.log(m);
+        m.style.display = "none";
+        m.classList.remove('open');
+   }
+
+  window.onclick = function(event) {
+    var m = document.querySelector('.open')
+    if (event.target == m) {
+        m.style.display = "none";
+        m.classList.remove('open');
+    }
+  }
+</script>
+@endpush
+
+@section('css')
+
 @endsection

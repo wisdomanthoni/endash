@@ -45,20 +45,22 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required'
-
         ]);
 
         $players = new Player;
         $players->position = $request->input('position');
         $players->email = $request->input('email');
         $players->name = $request->input('name');
-        $players->address = $request->input('address');
         $players->city = $request->input('city');
         $players->country = $request->input('country');
         $players->squad_number = $request->input('squad_number');
         $players->date_of_birth = $request->input('date_of_birth');
         $players->previous_club = $request->input('previous_club');
-        $players->about_me = $request->input('about_me');
+        $players->about = $request->input('about_player');
+        $players->facebook = $request->input('facebook');
+        $players->twitter = $request->input('twitter');
+        $players->instagram = $request->input('instagram');
+
         //dd($request->all());
         $players->save();
         $notification = array(
@@ -110,8 +112,6 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required'
-
-
         ]);
 
         $players = Player::where('id', $id)->first();
@@ -123,7 +123,7 @@ class PlayersController extends Controller
         $players->squad_number = $request->input('squad_number');
         $players->date_of_birth = $request->input('date_of_birth');
         $players->previous_club = $request->input('previous_club');
-        $players->about_me = $request->input('about_player');
+        $players->about = $request->input('about_player');
         $players->save();
         
         $notification = array(
@@ -141,7 +141,8 @@ class PlayersController extends Controller
      */
     public function destroy($id)
     {
-        $players = Player::find($id);
+        $player = Player::find($id);
+        $player->delete();
         $notification = array(
             'message' => 'Player Deleted',
             'alert-type' => 'info'
