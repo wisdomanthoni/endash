@@ -49,7 +49,6 @@ class PlayersController extends Controller
 
         $players = new Player;
         $players->position = $request->input('position');
-        $players->email = $request->input('email');
         $players->name = $request->input('name');
         $players->city = $request->input('city');
         $players->country = $request->input('country');
@@ -116,7 +115,6 @@ class PlayersController extends Controller
 
         $players = Player::where('id', $id)->first();
         $players->position = $request->input('position');
-        $players->email = $request->input('email');
         $players->name = $request->input('name');
         $players->city = $request->input('city');
         $players->country = $request->input('country');

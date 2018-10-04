@@ -15,7 +15,6 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email', 91)->unique();
             $table->string('name');
             $table->string('date_of_birth', 90)->nullable();
             $table->string('position', 30);
@@ -24,6 +23,7 @@ class CreatePlayersTable extends Migration
             $table->string('country', 60);
             $table->string('previous_club', 40);
             $table->text('about_player')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
