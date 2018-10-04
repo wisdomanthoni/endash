@@ -99,8 +99,49 @@
 
     	});
 	</script>
+    <script>
+      @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type', 'info') }}";
+        switch(type){
+            case 'info':
+                $.notify({
+                        message: "{{ Session::get('message') }}"
+                    },{
+                        type: 'info',
+                        timer: 4000
+                    });
+                break;
+
+            case 'warning':
+                $.notify({
+                        message: "{{ Session::get('message') }}"
+                    },{
+                        type: 'warning',
+                        timer: 4000
+                    });
+                    break;
+
+            case 'success':
+                $.notify({
+                        message: "{{ Session::get('message') }}"
+                    },{
+                        type: 'success',
+                        timer: 4000
+                    });
+                    break;
+
+            case 'error':
+                $.notify({
+                        message: "{{ Session::get('message') }}"
+                    },{
+                        type: 'error',
+                        timer: 4000
+                    });
+                
+                break;
+        }
+      @endif
+    </script>
 
     @section('footer')
-        @show
-
 </html>

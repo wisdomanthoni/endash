@@ -16,9 +16,7 @@ Route::get('/', function () {
 });
 
 //Players Route
-Route::resource('/profile', 'PlayersController');
-
-
+Route::resource('/players', 'PlayersController');
 
 //Articles Route
 Route::get('/articles', 'ArticlesController@index');
