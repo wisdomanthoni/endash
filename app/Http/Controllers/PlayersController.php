@@ -43,10 +43,14 @@ class PlayersController extends Controller
             'country' => 'required',
             'squad_number' => 'required',
             'date_of_birth' => 'required',
-            'previous_club' => 'required'
+            'previous_club' => 'required',
+            'image' => 'file|image|mimes:jpeg,png,gif'
         ]);
 
+        $image = $this->uploadImage($request);
+
         $players = new Player;
+        $players->image = $image;
         $players->position = $request->input('position');
         $players->name = $request->input('name');
         $players->city = $request->input('city');
@@ -108,8 +112,13 @@ class PlayersController extends Controller
             'country' => 'required',
             'squad_number' => 'required',
             'date_of_birth' => 'required',
-            'previous_club' => 'required'
+            'previous_club' => 'required',
+            'image' => 'file|image|mimes:jpeg,png,gif'
         ]);
+
+        if($request->has('image')){
+            $image = $this->uploadImage($request);
+        }
 
         $players = Player::where('id', $id)->first();
         $players->position = $request->input('position');
@@ -148,5 +157,20 @@ class PlayersController extends Controller
         );        
         return redirect()->route('players.index', compact('players'))->with($notification);
 
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $picUrl = '';
+
+        if ($request->image) {
+            $pic = $request->file('image');
+            $name = $request->file('name');
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $filename = $name . '-' . time() . '.' . $extension;
+            $picUrl = $pic->storeAs('/public/photos', $filename, 'public');
+        }
+
+        return '/' . $picUrl;
     }
 }

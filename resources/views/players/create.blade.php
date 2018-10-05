@@ -16,6 +16,16 @@
                     <form method="POST" action="{{ route('players.store') }}">
                         {{ csrf_field() }}
                         {{method_field('POST')}}
+                        <div style="height:0px;overflow:hidden">
+   <input type="file" id="fileInput" name="fileInput" />
+</div>
+<button type="button" onclick="chooseFile();">choose file</button>
+
+<script>
+   function chooseFile() {
+      $("#fileInput").click();
+   }
+</script>
                         <div class="row">
                              <div class="col-md-12">
                                 <div class="form-group">
