@@ -54,7 +54,7 @@ class PlayersController extends Controller
         $players->squad_number = $request->input('squad_number');
         $players->date_of_birth = $request->input('date_of_birth');
         $players->previous_club = $request->input('previous_club');
-        $players->about = $request->input('about_player');
+        $players->about_player = $request->input('about');
         $players->facebook = $request->input('facebook');
         $players->twitter = $request->input('twitter');
         $players->instagram = $request->input('instagram');
@@ -119,7 +119,10 @@ class PlayersController extends Controller
         $players->squad_number = $request->input('squad_number');
         $players->date_of_birth = $request->input('date_of_birth');
         $players->previous_club = $request->input('previous_club');
-        $players->about = $request->input('about_player');
+        $players->about_player = $request->input('about');
+        $players->facebook = $request->input('facebook');
+        $players->twitter = $request->input('twitter');
+        $players->instagram = $request->input('instagram');
         $players->save();
         
         $notification = array(
