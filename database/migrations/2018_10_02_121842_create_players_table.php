@@ -23,7 +23,7 @@ class CreatePlayersTable extends Migration
             $table->string('country', 60);
             $table->string('previous_club', 40);
             $table->text('about_player')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();
             $table->string('instagram')->nullable();

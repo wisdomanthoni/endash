@@ -77,7 +77,7 @@ class PlayersController extends Controller
     public function show($id)
     {
         $player = Player::where('id', $id)->get();
-        return view('players.show')->with('player', $player);
+        return view('players.show')->with('players', $player);
     }
 
     /**
@@ -89,7 +89,7 @@ class PlayersController extends Controller
     public function edit($id)
     {
         $player = Player::find($id);
-        return view('players.edit')->with('player', $player);
+        return view('players.edit')->with('players', $player);
     }
 
     /**

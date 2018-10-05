@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="profile-img">
-						<img src="{{ asset('assets/img/faces/legendary.jpg') }}" alt=""/>
+						<img src="{{ asset('. $player->position . ' || 'assets/img/faces/legendary.jpg' ) }}" alt=""/>
 						<div class="file btn btn-lg btn-primary">
 							Photo
 						</div>
@@ -21,9 +21,7 @@
 				</div> 
 				<div class="col-md-6">
 					<div class="profile-head">
-						<h5>
-							Username: {{$player->username}}
-						</h5>
+						
 						<h6>
 							Position: {{ $player->position }}
 						</h6>
@@ -41,7 +39,7 @@
 						</div>
 					</div>
 					<div class="col-md-2">
-						<a class="btn btn-primary" href="{{ route('profile.edit', $player->id) }}"> Edit Profile </a>
+						<a class="btn btn-primary" href="{{ route('players.edit', $player->id) }}"> Edit Profile </a>
 					</div>
 				</div>
 
@@ -50,11 +48,11 @@
 					<div class="col-md-4">
 						<div class="profile-work">
 							<h3 style="margin-top: -10px;">About Player</h3>
-							<p style="margin-top: -10px;">{{ $player->about_me }}</p>
+							<p style="margin-top: -10px;">{{ $player->about_player }}</p>
 							<p>SOCIAL LINK</p>
-							<a href="">Facebook</a><br/>
-							<a href="">Twitter</a><br/>
-							<a href="">Instagram</a>
+							<a href="{{ $player->facebook }}" target="_blank">Facebook</a><br/>
+							<a href="{{ $player->twitter }}" target="_blank">Twitter</a><br/>
+							<a href="{{ $player->instagram }}" target="_blank">Instagram</a>
 						</div>
 					</div>
 					<div class="col-md-8">
@@ -65,25 +63,10 @@
 									<label>Name</label>
 								</div>
 								<div class="col-md-6">
-									<p>{{ $player->last_name }}, {{ $player->first_name}}</p>
+									<p>{{ $player->name }}</p>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<label>Email</label>
-								</div>
-								<div class="col-md-6">
-									<p>{{ $player->email }}</p>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<label>Address</label>
-								</div>
-								<div class="col-md-6">
-									<p>{{ $player->address }}</p>
-								</div>
-							</div>
+							
 							<div class="row">
 								<div class="col-md-6">
 									<label>City</label>
