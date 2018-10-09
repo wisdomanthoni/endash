@@ -28,9 +28,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('matches', function () {
+Route::prefix('matches')->group (function () {
     Route::resource('/seasons', 'SeasonController');
     Route::resource('/competitions', 'CompController');
     Route::resource('/clubs', 'ClubController');
-
-}); 
+});

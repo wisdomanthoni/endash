@@ -77,7 +77,7 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-warning text-center">
-                                    <i class="ti-layout-grid2"></i>
+                                    <i class="ti-cup"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
@@ -89,9 +89,9 @@
                         </div>
                         <div class="footer">
                             <hr />
-                            <button class="btn btn-sm btn-warning stats" data-toggle="modal" onclick="toggle('played')">
+                             <a href="{{ route('competitions.index')}}" class="btn btn-sm btn-warning stats">
                                 <i class="ti-pencil"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-success text-center">
-                                    <i class="ti-stats-up"></i>
+                                    <i class="ti-flag-alt-2"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
@@ -127,13 +127,13 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-error text-center">
-                                    <i class="ti-stats-down"></i>
+                                    <i class="ti-basketball"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Matches Lost</p>
-                                     9
+                                    <p>Clubs</p>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -147,32 +147,7 @@
                 </div>
             </div>  
         </div>
-        @include('paper.props')
     </div>
 @endsection
 
 
-@push('scripts')
-<script>
-   function toggle(modal){
-        var m = document.getElementById(modal);
-        m.style.display = "block";
-        m.classList.add('open');
-   }
-
-   function closeModal(modal){
-        var m = document.getElementById(modal);
-        console.log(m);
-        m.style.display = "none";
-        m.classList.remove('open');
-   }
-
-  window.onclick = function(event) {
-    var m = document.querySelector('.open')
-    if (event.target == m) {
-        m.style.display = "none";
-        m.classList.remove('open');
-    }
-  }
-</script>
-@endpush
