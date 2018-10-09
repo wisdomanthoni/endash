@@ -12,25 +12,25 @@
                 <p>Dashboard</p>
             </a>
         </li>
-        <li class="{{ Request::is('players/*') ? 'active'  :  ''}}">
+        <li class="{{ Request::is('players/*') ? 'active'  :  ''}} {{ Request::is('players') ? 'active'  :  ''}}">
             <a href="{{ url('/players') }}">
                 <i class="ti-user"></i>
                 <p>Players Profile</p>
             </a>
         </li>
-        <!-- <li class="{{ Request::is('articles') ? 'active'  :  ''}}">
+        <li class="{{ Request::is('articles/*') ? 'active'  :  ''}} {{ Request::is('articles') ? 'active'  :  ''}}">
             <a href="{{ url('/articles') }}">
                 <i class="ti-notepad"></i>
                 <p>Write Articles</p>
             </a>
-        </li> -->
-        <li class="{{ Request::is('matches/*') ? 'active'  :  ''}}">
+        </li> 
+        <li class="{{ Request::is('matches/*') ? 'active'  :  ''}} {{ Request::is('matches') ? 'active'  :  ''}}">
             <a href="{{ url('/matches')}}">
                 <i class="ti-view-list-alt"></i>
-                <p>Match Fixing</p>
+                <p>Match Center</p>
             </a>
         </li>
-         <li class="{{ Request::is('media/*') ? 'active'  :  ''}}">
+         <li class="{{ Request::is('media/*') ? 'active'  :  ''}} {{ Request::is('media') ? 'active'  :  ''}}">
             <a href="{{ url('/media')}}">
                 <i class="ti-gallery"></i>
                 <p>Gallery</p>

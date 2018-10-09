@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/player/image', 'PlayersController@uploadImage');
+
+Route::post('/article/image', 'ArticlesController@uploadImage');

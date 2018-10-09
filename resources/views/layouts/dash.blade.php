@@ -19,6 +19,8 @@
 
     <!--  Paper Dashboard core CSS    -->
     <link href="/assets/css/paper-dashboard.css" rel="stylesheet"/>
+    <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/dropzone.js') }}"></script>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <!-- <link href="/assets/css/demo.css" rel="stylesheet" /> -->

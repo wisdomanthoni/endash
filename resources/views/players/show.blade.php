@@ -13,7 +13,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="profile-img">
-						<img src="{{ asset('. $player->position . ' || 'assets/img/faces/legendary.jpg' ) }}" alt=""/>
+						<img src="{{$player->image}}" alt=""/>
 						<div class="file btn btn-lg btn-primary">
 							Photo
 						</div>

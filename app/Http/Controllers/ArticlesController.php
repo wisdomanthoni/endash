@@ -81,4 +81,18 @@ class ArticlesController extends Controller
     {
         //
     }
+
+    public function uploadImage(Request $request)
+    {
+        $picUrl = '';
+
+        if ($request->pic) {
+            $pic = $request->file('pic');
+            $extension = $request->file('pic')->getClientOriginalExtension();
+            $filename = 'film-photo-' . time() . '.' . $extension;
+            $picUrl = $pic->storeAs('/players', $filename, 'public');
+        }
+
+        return '/' . $picUrl;
+    }
 }

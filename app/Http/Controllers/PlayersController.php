@@ -44,13 +44,12 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required',
-            'image' => 'file|image|mimes:jpeg,png,gif'
+            'image' => 'required'
         ]);
 
-        $image = $this->uploadImage($request);
 
         $players = new Player;
-        $players->image = $image;
+        $players->image = $request->image;
         $players->position = $request->input('position');
         $players->name = $request->input('name');
         $players->city = $request->input('city');
@@ -113,14 +112,12 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required',
-            'image' => 'file|image|mimes:jpeg,png,gif'
+            'image' => 'required'
         ]);
 
-        if($request->has('image')){
-            $image = $this->uploadImage($request);
-        }
 
         $players = Player::where('id', $id)->first();
+        $players->image = $request->image;
         $players->position = $request->input('position');
         $players->name = $request->input('name');
         $players->city = $request->input('city');
@@ -163,14 +160,14 @@ class PlayersController extends Controller
     {
         $picUrl = '';
 
-        if ($request->image) {
-            $pic = $request->file('image');
-            $name = $request->file('name');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $filename = $name . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/photos', $filename, 'public');
+        if ($request->pic) {
+            $pic = $request->file('pic');
+            $extension = $request->file('pic')->getClientOriginalExtension();
+            $filename = 'player' . '-' . time() . '.' . $extension;
+            $picUrl = $pic->storeAs('/public/players', $filename, 'public');
         }
 
         return '/' . $picUrl;
     }
+    
 }
