@@ -14,10 +14,13 @@
                         <table class="table table-striped">
                             <thead>
                                 <th>ID</th>
-                                <th>Name</th>
-                                <th>Salary</th>
-                                <th>Country</th>
-                                <th>City</th>
+                                <th>Competition</th>
+                                <th>Home</th>
+                                <th>Away</th>
+                                <th>Score</th>
+                                <th>Date</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </thead>
                             <tbody>
                                 <tr>
@@ -26,41 +29,19 @@
                                     <td>$36,738</td>
                                     <td>Niger</td>
                                     <td>Oud-Turnhout</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                    <td>Sinaai-Waas</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>$56,142</td>
-                                    <td>Netherlands</td>
-                                    <td>Baileux</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>$38,735</td>
-                                    <td>Korea, South</td>
-                                    <td>Overland Park</td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Doris Greene</td>
-                                    <td>$63,542</td>
-                                    <td>Malawi</td>
-                                    <td>Feldkirchen in Kärnten</td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Mason Porter</td>
-                                    <td>$78,615</td>
-                                    <td>Chile</td>
-                                    <td>Gloucester</td>
+                                    <td>Oud-Turnhout</td>
+                                    <td><a class="btn btn-primary">Edit</a></td>
+                                    <td>
+                                    <form id="form-data-" action=" " method="post" style="display: none;">
+                                        {{csrf_field()}}
+                                        {{method_field('DELETE')}}
+                                    </form>
+                                    <a class="btn btn-danger" href="" onclick="if (confirm('Are you sure you want to delete this?')) {
+                                        event.preventDefault();
+                                        document.getElementById('form-data-').submit();
+                                    } else {
+                                        event.preventDefault();}">Delete</a>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -114,9 +95,9 @@
                         </div>
                         <div class="footer">
                             <hr />
-                            <button class="btn btn-success btn-sm stats" onclick="toggle('won')">
+                           <a href="{{ route('seasons.index')}}" class="btn btn-sm btn-warning stats">
                                 <i class="ti-pencil"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -139,9 +120,9 @@
                         </div>
                         <div class="footer">
                             <hr />
-                            <button class="btn btn-error btn-sm stats" onclick="toggle('lost')">
+                            <a href="{{ route('clubs.index')}}" class="btn btn-sm btn-warning stats">
                                 <i class="ti-pencil"></i>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
