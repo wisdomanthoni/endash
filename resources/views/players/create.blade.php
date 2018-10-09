@@ -8,16 +8,16 @@
     color: #0087F7;
     font-size: 1.5em;
     letter-spacing: 0.05em;
-}
+  }
 
-.dropzone .img {
-    border: 2px dashed #0087F7;
-    background: white;
-    border-radius: 5px;
-    min-height: 300px;
-    padding: 90px 0;
-    vertical-align: baseline;
-}
+    .dropzone .img {
+        border: 2px dashed #0087F7;
+        background: white;
+        border-radius: 5px;
+        min-height: 300px;
+        padding: 90px 0;
+        vertical-align: baseline;
+    }
 </style>
 <div class="container-fluid">
     <div class="row">

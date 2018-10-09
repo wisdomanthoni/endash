@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Competition;
 
 class CompController extends Controller
 {
@@ -13,7 +14,9 @@ class CompController extends Controller
      */
     public function index()
     {
-        //
+        $comp = Competition::all();
+        return view('matches.competitions.index')->with('competitions', $comp);
+    
     }
 
     /**

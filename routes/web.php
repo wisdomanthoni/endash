@@ -21,15 +21,16 @@ Route::resource('/players', 'PlayersController');
 //Articles Route
 Route::get('/articles', 'ArticlesController@index');
 
-//Matches Route
+Route::prefix('matches')->group(function () {
+    Route::resource('/seasons', 'SeasonController');
+    Route::resource('/competitions', 'CompController');
+    Route::resource('/clubs', 'ClubController');
+});
+
 Route::resource('/matches', 'MatchesController');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::prefix('matches')->group (function () {
-    Route::resource('/seasons', 'SeasonController');
-    Route::resource('/competitions', 'CompController');
-    Route::resource('/clubs', 'ClubController');
-});
