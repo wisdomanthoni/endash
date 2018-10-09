@@ -22,8 +22,12 @@ Route::resource('/players', 'PlayersController');
 Route::get('/articles', 'ArticlesController@index');
 
 //Matches Route
-Route::get('/matches', 'MatchesController@index');
+Route::resource('/matches', 'MatchesController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('matches', function () {
+
+}); 
