@@ -21,6 +21,7 @@
     <link href="/assets/css/paper-dashboard.css" rel="stylesheet"/>
     <link href="{{ asset('css/dropzone.css') }}" rel="stylesheet">
     <script src="{{ asset('js/dropzone.js') }}"></script>
+    <script src="{{ asset('js/vue.js') }}"></script>
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <!-- <link href="/assets/css/demo.css" rel="stylesheet" /> -->
@@ -31,6 +32,8 @@
     <link href="{{asset('/assets/css/themify-icons.css')}}" rel="stylesheet">
 
     @yield('css')
+
+    @stack('style')
 
 </head>
 <body>
@@ -78,8 +81,10 @@
 	<script src="/assets/js/paper-dashboard.js"></script>
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-	<script src="/assets/js/dash.js"></script>
+    <script src="/assets/js/dash.js"></script>
     
+    @include('sweet::alert')
+
    @stack('scripts')
 	<script type="text/javascript">
     	$(document).ready(function(){
@@ -92,7 +97,7 @@
 
             },{
                 type: 'success',
-                timer: 4000
+                timer: 2
             });
 
     	});
@@ -106,7 +111,7 @@
                         message: "{{ Session::get('message') }}"
                     },{
                         type: 'info',
-                        timer: 4000
+                        timer: 400
                     });
                 break;
 
@@ -115,7 +120,7 @@
                         message: "{{ Session::get('message') }}"
                     },{
                         type: 'warning',
-                        timer: 4000
+                        timer: 400
                     });
                     break;
 
@@ -124,7 +129,7 @@
                         message: "{{ Session::get('message') }}"
                     },{
                         type: 'success',
-                        timer: 4000
+                        timer: 400
                     });
                     break;
 

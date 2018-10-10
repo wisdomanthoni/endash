@@ -23,7 +23,7 @@ class MatchesController extends Controller
      */
     public function create()
     {
-        //
+        return view('matches.create');
     }
 
     /**

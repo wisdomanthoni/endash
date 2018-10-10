@@ -7,18 +7,17 @@
       <div class="card">
         @include('inc.messages')
         <div class="header">
-          <h4 class="title pull-left">competition's List</h4>
+          <h4 class="title pull-left">Competitions List</h4>
           <a class="pull-right btn btn-info btn-fill" href="{{ route('competitions.create') }}">Add New</a>
         </div>
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
             <thead>
               <th>N/S</th>
+              <th></th>
               <th>Name</th>
-              <th>Position</th>
-              <th>Squad Number</th>
-              <th>Previous Club</th>
-              <th>View</th>
+              <th>Start</th>
+              <th>End</th>
               <th>Edit</th>
               <th>Delete</th>
             </thead>
@@ -27,11 +26,10 @@
               @foreach($competitions as $competition)
                 <tr>
                     <td>{{$loop->index + 1}}</td>
+                    <td><img height="50" width="50" src="{{$competition->image}}" alt=""></td>
                     <td>{{$competition->name}}</td>
-                    <td>{{$competition->position}}</td>
-                    <td>{{$competition->squad_number}}</td>
-                    <td>{{$competition->previous_club}}</td>
-                    <td><a class="btn btn-success" href="{{ route('competitions.show', $competition->id) }}">View</a></td>
+                    <td>{{$competition->start}}</td>
+                    <td>{{$competition->end}}</td>
                     <td><a class="btn btn-primary" href="{{ route('competitions.edit', $competition->id) }}">Edit</a></td>
                     <td>
                     <form id="form-data-{{$competition->id}}" action="{{ route('competitions.destroy', $competition->id) }}" method="post" style="display: none;">

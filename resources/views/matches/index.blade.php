@@ -1,8 +1,7 @@
 @extends('layouts.dash')
 
 @section('content')
-     <div class="container-fluid">
-         
+     <div class="container-fluid">      
         <div class="row">
             <div class="col-lg-3 col-md-3">
                 <div class="card">
@@ -79,7 +78,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title pull-left">Match Center</h4>
-                        <a class="pull-right btn btn-info btn-fill" href="{{ route('players.create') }}">Add New</a>
+                        <a class="pull-right btn btn-info btn-fill" href="{{ route('matches.create') }}">Add New</a>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-striped">
@@ -122,6 +121,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 
