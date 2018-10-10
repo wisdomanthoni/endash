@@ -46,8 +46,13 @@ class ArticlesController extends Controller
         $articles->title = $request->title;
         $articles->body = $request->body;
         $articles->save();
+        
+        $notification = array(
+            'message' => ' Article Created Successfully',
+            'alert-type' => 'info'
+        );
 
-        return redirect(route('articles.index'))->with('success', 'Article Created Successfully');
+        return redirect(route('articles.index'))->with($notification);
     }
 
     /**
@@ -92,7 +97,11 @@ class ArticlesController extends Controller
      $articles->body = $request->body;
      $articles->save();
 
-     return redirect(route('articles.index'))->with('success', 'Article Updated Successfully');
+     $notification = array(
+            'message' => ' Article Updated Successfully',
+            'alert-type' => 'info'
+        );
+     return redirect(route('articles.index'))->with($notification);
  }
 
     /**
@@ -104,7 +113,11 @@ class ArticlesController extends Controller
     public function destroy($id)
     {
         Article::where('id', $id)->delete();
-        return back()->with('delete', 'Article Deleted Successfully');
+        $notification = array(
+            'message' => ' Article Deleted Successfully',
+            'alert-type' => 'info'
+        );
+        return back()->with($notification);
     }
 
     public function uploadImage(Request $request)
