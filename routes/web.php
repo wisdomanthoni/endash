@@ -19,7 +19,14 @@ Route::get('/', function () {
 Route::resource('/players', 'PlayersController');
 
 //Articles Route
-Route::get('/articles', 'ArticlesController@index');
+Route::get('/articles', 'ArticlesController@index')->name('articles.index');
+Route::get('/articles/create', 'ArticlesController@create')->name('articles.create');
+Route::post('/articles/store', 'ArticlesController@store')->name('articles.store');
+Route::get('/articles/{id}/edit', 'ArticlesController@edit')->name('articles.edit');
+Route::delete('/articles/{id}', 'ArticlesController@destroy')->name('articles.destroy');
+Route::PATCH('/articles/{id}', 'ArticlesController@update')->name('articles.update');
+
+
 
 //Matches Route
 Route::resource('/matches', 'MatchesController');
