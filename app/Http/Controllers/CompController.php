@@ -58,7 +58,7 @@ class CompController extends Controller
             'alert-type' => 'success'
         );
            return redirect(route('competitions.index'))->with($notification);
-        }
+     }
 
     /**
      * Display the specified resource.

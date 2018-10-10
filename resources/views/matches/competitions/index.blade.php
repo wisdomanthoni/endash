@@ -14,7 +14,7 @@
           <table class="table table-striped">
             <thead>
               <th>N/S</th>
-              <th></th>
+              <th></th> 
               <th>Name</th>
               <th>Start</th>
               <th>End</th>

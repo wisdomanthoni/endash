@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Season;
 
 class SeasonController extends Controller
 {
@@ -13,7 +14,8 @@ class SeasonController extends Controller
      */
     public function index()
     {
-        //
+        $seasons = Season::all();
+        return view('matches.seasons.index')->with('seasons', $seasons);
     }
 
     /**
@@ -34,7 +36,24 @@ class SeasonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'start' => 'required',
+            'end'   => 'required',
+        ]);
+
+        $season = new Season;
+        $season->name = $request->input('name');
+        $season->start = $request->input('start');
+        $season->end = $request->input('end');
+        $season->save();
+
+        $notification = array(
+            'message' => 'New Season Added',
+            'alert-type' => 'success'
+        );
+           return redirect(route('seasons.index'))->with($notification);
+
     }
 
     /**
@@ -68,7 +87,25 @@ class SeasonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'start' => 'required',
+            'end'   => 'required'
+        ]);
+
+        $season = Season::findorfail($id);
+        $season->name = $request->input('name');
+        $season->start = $request->input('start');
+        $season->end = $request->input('end');
+
+        $season->save();
+
+        $notification = array(
+            'message' => 'Season Updated',
+            'alert-type' => 'success'
+        );
+           return redirect(route('seasons.index'))->with($notification);
+
     }
 
     /**
@@ -79,6 +116,13 @@ class SeasonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $season = Season::find($id);
+        $season->delete();
+        $notification = array(
+            'message' => 'Season Deleted',
+            'alert-type' => 'info'
+        );        
+        return redirect()->route('seasons.index')->with($notification);
+
     }
 }

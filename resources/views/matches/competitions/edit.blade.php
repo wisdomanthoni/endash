@@ -17,7 +17,7 @@
                 <div class="content">
                     <form method="POST" action="{{ route('competitions.update', $competition->id) }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        {{method_field('POST')}}
+                        {{method_field('PUT')}}
 
                         <div class="row">
                             <div class="col-md-6">
