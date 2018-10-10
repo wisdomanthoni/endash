@@ -13,7 +13,7 @@ class MatchesController extends Controller
      */
     public function index()
     {
-        return view('paper.matches');
+        return view('matches.index');
     }
 
     /**
