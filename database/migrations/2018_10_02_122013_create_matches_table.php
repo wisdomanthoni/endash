@@ -15,6 +15,12 @@ class CreateMatchesTable extends Migration
     {
         Schema::create('matches', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('home');
+            $table->integer('away');
+            $table->integer('season_id');
+            $table->integer('competition_id');
+            $table->date('date');
+            $table->time('time');
             $table->timestamps();
         });
     }
