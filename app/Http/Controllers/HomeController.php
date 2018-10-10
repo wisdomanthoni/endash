@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,39 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('home');
+    }
+
+    public function statistics(Request $request){
+       
+        // if ($request->matches_played) {
+        //     # code...
+        // }
+        dd($request);
+        
+        switch ($variable) {
+            case 'value':
+                # code...
+                break;
+            case 'value':
+                # code...
+                break;
+            case 'value':
+                # code...
+                break;
+            case 'value':
+                # code...
+                break;
+            case 'value':
+                # code...
+                break;
+            case 'value':
+                # code...
+                break;
+            
+            default:
+                # code...
+                break;
+        }
     }
 }

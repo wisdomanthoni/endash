@@ -39,5 +39,5 @@ Route::resource('/matches', 'MatchesController');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/statistics', 'HomeController@statistics')->name('statistics');
 

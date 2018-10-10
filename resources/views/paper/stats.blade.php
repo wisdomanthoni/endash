@@ -9,12 +9,34 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
+            <div class="content">
+                <form method="POST"  class="form-inline m-auto"action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+
+         {{--  <form method="POST" action="{{ route('statistics') }}" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
             </div>
             <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+         </form> --}}
       </div>
     </div>
   </div>
@@ -31,12 +53,28 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
-            <div class="form-group">
-                <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+        <div class="content">
+                <form method="POST" action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+
       </div>
     </div>
   </div>
@@ -53,12 +91,28 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
-            <div class="form-group">
-                <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+          <div class="content">
+                <form method="POST" action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+
       </div>
     </div>
   </div>
@@ -75,12 +129,28 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
-            <div class="form-group">
-                <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+         <div class="content">
+                <form method="POST"  class="form-inline m-auto"action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+
       </div>
     </div>
   </div>
@@ -97,12 +167,28 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
-            <div class="form-group">
-                <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+       <div class="content">
+                <form method="POST"  class="form-inline m-auto"action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+
       </div>
     </div>
   </div>
@@ -119,12 +205,28 @@
         </button>
       </div>
       <div class="modal-body">
-         <form class="form-inline m-auto">
-            <div class="form-group">
-                <input type="number" class="form-control" id="exampleInputAmount" placeholder="Amount">
+        <div class="content">
+                <form method="POST"  class="form-inline m-auto"action="{{ route('statistics') }}" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    {{method_field('POST')}}
+
+                    <div class="flex-row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update</button>
+                        </div>
+                      
+                    </div>
+
+                    <div class="clearfix"></div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Update</button>
-         </form>
+
       </div>
     </div>
   </div>
