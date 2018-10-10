@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Match;
+use App\Club;
+use App\Competition;
+use App\Season;
 
 class MatchesController extends Controller
 {
@@ -13,7 +17,12 @@ class MatchesController extends Controller
      */
     public function index()
     {
-        return view('matches.index');
+        return view('matches.index',[
+            'seasons' => Season::all(),
+            'competitions' => Competition::all(),
+            'matches' => Match::paginate(),
+            'clubs' =>  Club::all(),
+        ]);
     }
 
     /**

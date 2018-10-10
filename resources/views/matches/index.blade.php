@@ -15,7 +15,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Competitions</p>
-                                    24
+                                    {{$competitions->count()}}
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Seasons</p>
-                                    9
+                                    {{$seasons->count()}}
                                 </div>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Clubs</p>
-                                    
+                                    {{$clubs->count()}}
                                 </div>
                             </div>
                         </div>

@@ -37,7 +37,7 @@
                         </form>
                     </div>
                     <div class="col-md-7">
-                        <img id="pic" class="m-auto d-lg-block img img-fluid" style="height: 350px; width: 350px; border:0px" data-holder-rendered="true">
+                        <img id="pic" src="{{$articles->image}}" class="m-auto d-lg-block img img-fluid" style="height: 350px; width: 350px; border:0px" data-holder-rendered="true">
                     </div>
                 </div>
 
@@ -45,6 +45,8 @@
                     <form action="{{ route('articles.update', $articles->id) }}" method="POST">
                           {{ csrf_field() }}
                           {{ method_field('PATCH')}}
+
+                        <input id="picurl" name="image" type="hidden" value="{{$articles->image}}">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

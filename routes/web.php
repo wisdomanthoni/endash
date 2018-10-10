@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('paper.home');
-});
+})->name('home');;
 
 //Players Route
 Route::resource('/players', 'PlayersController');
@@ -39,5 +39,5 @@ Route::resource('/matches', 'MatchesController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 

@@ -39,10 +39,12 @@ class ArticlesController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'body' => 'required',
+            'image' => 'required'
         ]);
 
         $articles = new Article;
+        $articles->image = $request->image;
         $articles->title = $request->title;
         $articles->body = $request->body;
         $articles->save();
@@ -93,6 +95,7 @@ class ArticlesController extends Controller
     ]);
 
      $articles = Article::where('id', $id)->first();
+     $articles->image = $request->image;
      $articles->title = $request->title;
      $articles->body = $request->body;
      $articles->save();

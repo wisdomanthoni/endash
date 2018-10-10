@@ -44,6 +44,7 @@
                 <div class="content">
                     <form action="{{ route('articles.store') }}" method="POST">
                           {{ csrf_field() }}
+                       <input id="picurl" name="image" type="hidden">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
