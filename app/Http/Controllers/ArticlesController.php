@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
@@ -13,7 +14,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('paper.articles');
+        $articles = Article::all();
+        return view('articles.index', compact('articles'));
+
     }
 
     /**
@@ -23,7 +26,7 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -34,7 +37,17 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $articles = new Article;
+        $articles->title = $request->title;
+        $articles->body = $request->body;
+        $articles->save();
+
+        return redirect(route('articles.index'))->with('success', 'Article Created Successfully');
     }
 
     /**
@@ -56,7 +69,8 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $articles = Article::find($id);
+        return view('articles.edit', compact('articles'));
     }
 
     /**
@@ -68,8 +82,18 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+     $this->validate($request, [
+        'title' => 'required',
+        'body' => 'required'
+    ]);
+
+     $articles = Article::where('id', $id)->first();
+     $articles->title = $request->title;
+     $articles->body = $request->body;
+     $articles->save();
+
+     return redirect(route('articles.index'))->with('success', 'Article Updated Successfully');
+ }
 
     /**
      * Remove the specified resource from storage.
@@ -79,7 +103,8 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Article::where('id', $id)->delete();
+        return back()->with('delete', 'Article Deleted Successfully');
     }
 
     public function uploadImage(Request $request)

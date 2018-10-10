@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4" style="margin-left : 5px;">
-                        <form action="/api/upload" class="dropzone mb-3" id="filmPicture" style="width: 200px; height: 200px;">
+                        <form action="/api/upload"  class="dropzone mb-3" id="filmPicture" style="width: 200px; height: 200px;">
                         {{ csrf_field() }}
                         </form>
                     </div>
@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="content">
-                    <form>
-
+                    <form action="{{ route('articles.store') }}" method="POST">
+                          {{ csrf_field() }}
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -58,10 +58,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Article</label>
-                                    <textarea rows="5" title="article" class="form-control border-input" placeholder="Here can be your description">Oh so, your weak rhyme
-                                        You doubt I'll bother, reading into it
-                                        I'll probably won't, left to my own devices
-                                        But that's the difference in our opinions.
+                                    <textarea rows="5" title="article" id="body" name="body" class="form-control border-input" placeholder="Here can be your description">
                                     </textarea>
                                 </div>
                             </div>
@@ -83,25 +80,29 @@
 
 @push('scripts')
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=0wywmrqf585di0lsqsveqzmmw3msaip5ds163itm25e2tvas'></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 <script>
-tinymce.init({
-  selector: 'textarea',
-  height: 250,
-  menubar: false,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor textcolor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table contextmenu paste code help wordcount',
-    'codesample'
-  ],
-  codesample_languages: [
-        {text: 'HTML/XML', value: 'markup'},
-    ],
-  toolbar: 'codesample | insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist | removeformat ',
-  content_css: [
-    '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-    '//www.tinymce.com/css/codepen.min.css']
-});
+
+  CKEDITOR.replace( 'body' );
+
+// tinymce.init({
+//   selector: 'textarea',
+//   height: 250,
+//   menubar: false,
+//   plugins: [
+//     'advlist autolink lists link image charmap print preview anchor textcolor',
+//     'searchreplace visualblocks code fullscreen',
+//     'insertdatetime media table contextmenu paste code help wordcount',
+//     'codesample'
+//   ],
+//   codesample_languages: [
+//         {text: 'HTML/XML', value: 'markup'},
+//     ],
+//   toolbar: 'codesample | insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist | removeformat ',
+//   content_css: [
+//     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+//     '//www.tinymce.com/css/codepen.min.css']
+// });
 </script>
 @endpush
 
