@@ -18,7 +18,7 @@ class CreateStatisticsTable extends Migration
             $table->integer('matches_played');
             $table->integer('matches_won');
             $table->integer('matches_lost');
-            $table->integer('matches_played');
+            $table->integer('matches_drawn');
             $table->integer('goals_scored');
             $table->integer('points');
             $table->timestamps();
