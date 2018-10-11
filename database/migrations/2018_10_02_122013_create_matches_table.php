@@ -21,8 +21,7 @@ class CreateMatchesTable extends Migration
             $table->integer('away_score')->nullable();
             $table->integer('season_id');
             $table->integer('competition_id');
-            $table->date('date');
-            $table->time('time');
+            $table->timestamp('datetime');
             $table->timestamps();
         });
     }

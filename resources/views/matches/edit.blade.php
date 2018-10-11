@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="content">
-                    <form method="POST" action="{{ route('matches.store') }}">
+                    <form method="POST" action="{{ route('matches.update', $match->id) }}">
                         {{ csrf_field() }}
                         {{method_field('POST')}}
 
@@ -24,9 +24,8 @@
                                 <div class="form-group">
                                     <label>Season</label>
                                     <select name="season" class="form-control border-input" id="">
-                                       <option selected disabled> Choose Season </option>
                                         @forelse ($seasons as $season)
-                                             <option value="{{$season->id}}">{{$season->name}}</option>
+                                             <option {{ $match->season_id == $season->id ? 'selected' : '' }} value="{{$season->id}}">{{$season->name}}</option>
                                         @empty
                                             <option disabled> No Season Added</option>
                                         @endforelse
@@ -36,14 +35,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="date">Date</label>
-                                    <input type="date" name="date"  class="form-control border-input" >
+                                    <input type="date" name="date" value="{{$match->date()}}" class="form-control border-input" >
 
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Time</label>
-                                    <input type="text" name="time" class="form-control timepicker border-input" placeholder="Match Time">
+                                    <input type="text" name="time" value="{{$match->getTime()}}" class="form-control timepicker border-input" placeholder="Match Time">
                                 </div>
                             </div>
                             
@@ -56,7 +55,7 @@
                                     <select name="home"  class="selectpicker form-control" data-live-search="true" placeholder="Select Competition">
                                         <option style="background: #5cb85c; color: #fff;" selected disabled>Select Home Team</option>
                                         @forelse ($clubs as $club)
-                                             <option value="{{$club->id}}">{{$club->name}}</option>
+                                             <option {{ $match->home == $club->id ? 'selected' : '' }} value="{{$club->id}}">{{$club->name}}</option>
                                         @empty
                                             <option disabled> No Club Added</option>
                                         @endforelse
@@ -69,7 +68,7 @@
                                     <select name="away" class="selectpicker form-control" data-live-search="true"  placeholder="Select Competition">
                                         <option style="background: #5cb85c; color: #fff;" selected disabled>Select Away Team</option>
                                         @forelse ($clubs as $club)
-                                             <option value="{{$club->id}}">{{$club->name}}</option>
+                                             <option {{ $match->away == $club->id ? 'selected' : '' }} value="{{$club->id}}">{{$club->name}}</option>
                                         @empty
                                             <option disabled> No Club Added</option>
                                         @endforelse                                  
@@ -82,7 +81,7 @@
                                     <select name="competition" class="selectpicker form-control" data-live-search="true" >
                                         <option style="background: #5cb85c; color: #fff;" selected disabled>Select Competition</option>
                                         @forelse ($competitions as $competition)
-                                             <option value="{{$competition->id}}">{{$competition->name}}</option>
+                                             <option {{ $match->competition_id == $competition->id ? 'selected' : '' }} value="{{$competition->id}}">{{$competition->name}}</option>
                                         @empty
                                             <option disabled> No Competition Added</option>
                                         @endforelse

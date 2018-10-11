@@ -7,6 +7,7 @@ use App\Match;
 use App\Club;
 use App\Competition;
 use App\Season;
+use Carbon\Carbon;
 
 class MatchesController extends Controller
 {
@@ -32,7 +33,11 @@ class MatchesController extends Controller
      */
     public function create()
     {
-        return view('matches.create');
+        return view('matches.create',[
+            'seasons' => \App\Season::all(),
+            'competitions' => \App\Competition::all(),
+            'clubs' => \App\Club::all(),
+        ]);
     }
 
     /**
@@ -43,7 +48,26 @@ class MatchesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'home' => 'required',
+            'away' => 'required',
+            'season' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'competition' => 'required'
+        ]);
+        $datetime = Carbon::parse($request->date . $request->time);
+        //dd($date);
+        $matches = new Match;
+        $matches->home = $request->home;
+        $matches->away = $request->away;
+        $matches->datetime = $datetime;
+        $matches->season_id = $request->season;
+        $matches->competition_id = $request->competition;
+        $matches->save();
+
+        return back()->with('success','Match Fixed Successful');
+
     }
      
     /**
@@ -54,7 +78,7 @@ class MatchesController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -65,7 +89,15 @@ class MatchesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $match = Match::findorfail($id);
+        return view('matches.edit',
+            [
+                'seasons' => \App\Season::all(),
+                'competitions' => \App\Competition::all(),
+                'clubs' => \App\Club::all(),
+            ])
+            ->with('match', $match);
+    
     }
 
     /**
@@ -77,7 +109,28 @@ class MatchesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'home' => 'required',
+            'away' => 'required',
+            'season' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'competition' => 'required'
+        ]);
+        $datetime = Carbon::parse($request->date . $request->time);
+        //dd($date);
+        $matches = Match::findorfail($id);
+        $matches->home = $request->home;
+        $matches->away = $request->away;
+        $matches->datetime = $datetime;
+        $matches->season_id = $request->season;
+        $matches->competition_id = $request->competition;
+        $matches->home_score = $request->home_score;
+        $matches->away_score = $request->away_score;
+        $matches->save();
+
+        return back()->with('success', 'Match Fixed Successful');
+
     }
 
     /**

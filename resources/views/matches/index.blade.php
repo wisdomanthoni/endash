@@ -89,35 +89,40 @@
                                 <th>Away</th>
                                 <th>Score</th>
                                 <th>Date</th>
-                                <th>Time</th>
                                 <th>Season</th>
                                 <th></th>
                                 <th></th>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>$36,738</td>
-                                    <td>Niger</td>
-                                    <td>5 : 3</td>
-                                    <td>5th May</td>
-                                    <td>10PM</td>
-                                    <td>2017/2018</td>
-                                    <td><a class="btn btn-sm btn-primary">Edit</a></td>
-                                    <td>
-                                        <form id="form-data-" action=" " method="post" style="display: none;">
-                                            {{csrf_field()}}
-                                            {{method_field('DELETE')}}
-                                        </form>
-                                        <a class="btn btn-sm btn-danger" href="" onclick="if (confirm('Are you sure you want to delete this?')) {
-                                                event.preventDefault();
-                                                document.getElementById('form-data-').submit();
-                                            } else {
-                                                event.preventDefault();}">Delete
-                                         </a>
-                                    </td>
-                                </tr>
+                                @forelse ($matches as $match)
+                                    <tr>
+                                        <td>1</td>
+                                        <td>{{$match->competition->name}}</td>
+                                        <td>{{$match->homeTeam->name}}</td>
+                                        <td>{{$match->awayTeam->name}}</td>
+                                        <td>{{$match->home_score ?? '-'}} : {{$match->away_score ?? '-'}}</td>
+                                        <td class="small">{{$match->parseTime()}}</td>
+                                        <td>{{$match->season->name}}</td>
+                                        <td><a href="{{ route('matches.edit', $match->id) }}" class="btn btn-sm btn-primary">Edit</a></td>
+                                        <td>
+                                            <form id="form-data-{{$match->id}}" action="{{ route('matches.destroy', $match->id) }}" method="post" style="display: none;">
+                                                {{csrf_field()}}
+                                                {{method_field('DELETE')}}
+                                            </form>
+                                            <a class="btn btn-sm btn-danger" href="#" onclick="if (confirm('Are you sure you want to delete this?')) {
+                                                    event.preventDefault();
+                                                    document.getElementById('form-data-{{$match->id}}').submit();
+                                                } else {
+                                                    event.preventDefault();}">Delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @empty
+                                   <tr>
+                                    <td class="text-center h2" colspan="9">No Match Fixed</td> 
+                                   </tr>
+                                @endforelse
+                                
                             </tbody>
                         </table>
 
