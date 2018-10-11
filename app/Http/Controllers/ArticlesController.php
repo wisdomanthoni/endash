@@ -130,10 +130,12 @@ class ArticlesController extends Controller
         if ($request->pic) {
             $pic = $request->file('pic');
             $extension = $request->file('pic')->getClientOriginalExtension();
-            $filename = 'film-photo-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/players', $filename, 'public');
+            $filename = 'article' . time() . '.' . $extension;
+            $picUrl = $pic->storeAs('articles', $filename, 's3');
+            \Storage::disk('s3')->setVisibility($picUrl, 'public');
+
         }
 
-        return '/' . $picUrl;
+        return 'https://s3.amazonaws.com/enyimbafc/' . $picUrl;
     }
 }

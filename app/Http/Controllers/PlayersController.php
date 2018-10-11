@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Player;
+use Storage;
 
 class PlayersController extends Controller
 {
@@ -164,10 +165,12 @@ class PlayersController extends Controller
             $pic = $request->file('pic');
             $extension = $request->file('pic')->getClientOriginalExtension();
             $filename = 'player' . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/players', $filename, 'public');
+            $picUrl = $pic->storeAs('players', $filename, 's3');
+            \Storage::disk('s3')->setVisibility($picUrl, 'public');
+
         }
 
-        return '/' . $picUrl;
+        return 'https://s3.amazonaws.com/enyimbafc/' . $picUrl;
     }
     
 }

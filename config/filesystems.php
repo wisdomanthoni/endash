@@ -57,11 +57,11 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
+            'key' => env('AWS_ACCESS_KEY_ID', 'AKIAJ47LLLQDTSXI7GJQ'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY', '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'),
+            'region' => env('AWS_DEFAULT_REGION','us-east-1'),
+            'bucket' => env('AWS_BUCKET','enyimbafc'),
+            'url' => env('AWS_URL', 'https://s3.amazonaws.com/enyimbafc'),
         ],
 
     ],

@@ -147,9 +147,11 @@ class CompController extends Controller
             $pic = $request->file('image');
             $extension = $request->file('image')->getClientOriginalExtension();
             $filename = 'competition' . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/competitions', $filename, 'public');
+            $picUrl = $pic->storeAs('competitions', $filename, 's3');
+            \Storage::disk('s3')->setVisibility($picUrl, 'public');
+
         }
 
-        return '/' . $picUrl;
+        return 'https://s3.amazonaws.com/enyimbafc/' . $picUrl;
     }
 }

@@ -140,9 +140,11 @@ class ClubController extends Controller
             $pic = $request->file('image');
             $extension = $request->file('image')->getClientOriginalExtension();
             $filename = 'club' . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/clubs', $filename, 'public');
+            $picUrl = $pic->storeAs('clubs', $filename, 's3');
+            \Storage::disk('s3')->setVisibility($picUrl, 'public');
+
         }
 
-        return '/' . $picUrl;
+        return 'https://s3.amazonaws.com/enyimbafc/' . $picUrl;
     }
 }
