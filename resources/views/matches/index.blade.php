@@ -81,7 +81,7 @@
                         <a class="pull-right btn btn-info btn-fill" href="{{ route('matches.create') }}">Add New</a>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table table-striped">
+                        <table id="match-table" class="table table-sm table-striped">
                             <thead>
                                 <th>ID</th>
                                 <th>Competition</th>
@@ -89,8 +89,10 @@
                                 <th>Away</th>
                                 <th>Score</th>
                                 <th>Date</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Time</th>
+                                <th>Season</th>
+                                <th></th>
+                                <th></th>
                             </thead>
                             <tbody>
                                 <tr>
@@ -98,19 +100,22 @@
                                     <td>Dakota Rice</td>
                                     <td>$36,738</td>
                                     <td>Niger</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td>Oud-Turnhout</td>
-                                    <td><a class="btn btn-primary">Edit</a></td>
+                                    <td>5 : 3</td>
+                                    <td>5th May</td>
+                                    <td>10PM</td>
+                                    <td>2017/2018</td>
+                                    <td><a class="btn btn-sm btn-primary">Edit</a></td>
                                     <td>
-                                    <form id="form-data-" action=" " method="post" style="display: none;">
-                                        {{csrf_field()}}
-                                        {{method_field('DELETE')}}
-                                    </form>
-                                    <a class="btn btn-danger" href="" onclick="if (confirm('Are you sure you want to delete this?')) {
-                                        event.preventDefault();
-                                        document.getElementById('form-data-').submit();
-                                    } else {
-                                        event.preventDefault();}">Delete</a>
+                                        <form id="form-data-" action=" " method="post" style="display: none;">
+                                            {{csrf_field()}}
+                                            {{method_field('DELETE')}}
+                                        </form>
+                                        <a class="btn btn-sm btn-danger" href="" onclick="if (confirm('Are you sure you want to delete this?')) {
+                                                event.preventDefault();
+                                                document.getElementById('form-data-').submit();
+                                            } else {
+                                                event.preventDefault();}">Delete
+                                         </a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -126,6 +131,77 @@
 
 
 @push('scripts')
+{{-- <script src="{{asset('js/table.js')}}"></script>
+<script>
+   $('#match-table').Tabledit({
+        url: '{{route('match.fix')}}',
+        debug: true,
+        inputClass: 'form-control border-input input-sm',
+        hideIdentifier: true,
+        buttons: {
+            edit: {
+                class: 'btn btn-sm btn-primary',
+                html: '<span class="ti-pencil"></span>',
+                action: 'edit'
+            },
+            delete: {
+                class: 'btn btn-sm btn-default',
+                html: '<span class="ti-trash"></span>',
+                action: 'delete'
+            },
+            save: {
+                class: 'btn btn-sm btn-success',
+                html: 'Save'
+            },
+            restore: {
+                class: 'btn btn-sm btn-warning',
+                html: 'Restore',
+                action: 'restore'
+            },
+            confirm: {
+                class: 'btn btn-sm btn-danger',
+                html: 'Confirm'
+            }
+        },
+        columns: {
+            identifier: [0, 'id'],                    
+            editable: [
+                        [1, 'competition_id'], 
+                        [2, 'home'],
+                        [3, 'away'],
+                        [4, 'home_score'],
+                        [5, 'away_score'],
+                        [6, 'date'],
+                        [7, 'time'],
+                        [9, 'season_id']
+                    ]
+        },
+        onDraw: function() {
+            console.log('onDraw()');
+        },
+        onSuccess: function(data, textStatus, jqXHR) {
+            console.log('onSuccess(data, textStatus, jqXHR)');
+            console.log(data);
+            console.log(textStatus);
+            console.log(jqXHR);
+        },
+        onFail: function(jqXHR, textStatus, errorThrown) {
+            console.log('onFail(jqXHR, textStatus, errorThrown)');
+            console.log(jqXHR);
+            console.log(textStatus);
+            console.log(errorThrown);
+        },
+        onAlways: function() {
+            console.log('onAlways()');
+        },
+        onAjax: function(action, serialize) {
+            console.log('onAjax(action, serialize)');
+            console.log(action);
+            console.log(serialize);
+        }
+    });
+</script> --}}
+
 <script>
    function toggle(modal){
         var m = document.getElementById(modal);

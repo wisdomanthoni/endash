@@ -45,7 +45,7 @@ class MatchesController extends Controller
     {
         //
     }
-
+     
     /**
      * Display the specified resource.
      *

@@ -17,7 +17,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                    <input type="number" name="value" class="form-control" value="{{$set['played'][0]->val}}">  
+                                    <input type="number" name="value" class="form-control" value="{{$set['played'][0]->val ?? 0}}">  
                                      <input type="hidden" name="type" value="played">
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                    <input type="number" name="value" class="form-control" value="{{$set['won'][0]->val}}">  
+                                    <input type="number" name="value" class="form-control" value="{{$set['won'][0]->val ?? 0 }}">  
                                     <input type="hidden" name="type" value="won">
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                     <input type="number" name="value" class="form-control" value="{{$set['lost'][0]->val}}">  
+                                     <input type="number" name="value" class="form-control" value="{{$set['lost'][0]->val ?? 0}}">  
                                      <input type="hidden" name="type" value="lost">
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                    <input type="number" name="value" class="form-control" value="{{$set['drawn'][0]->val}}">  
+                                    <input type="number" name="value" class="form-control" value="{{$set['drawn'][0]->val ?? 0 }}">  
                                     <input type="hidden" name="type" value="drawn">
                             </div>
                         </div>
@@ -179,7 +179,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                    <input type="number" name="value" class="form-control" value="{{$set['goals'][0]->val}}">  
+                                    <input type="number" name="value" class="form-control" value="{{$set['goals'][0]->val ?? 0 }}">  
                                     <input type="hidden" name="type" value="goals">
                             </div>
                         </div>
@@ -218,8 +218,7 @@
                     <div class="flex-row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                   {{ dd($set['points'][0]) }}
-                                    <input type="text" name="value" class="form-control" value="{{$set['points'][0]->val}}">  
+                                    <input type="text" name="value" class="form-control" value="{{$set['points'][0]->val ?? 0 }}">  
                                     <input type="hidden" name="type" value="points">
                             </div>
                         </div>

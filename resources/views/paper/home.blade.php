@@ -1,7 +1,6 @@
 @extends('layouts.dash')
 
 @section('content')
-{{$goll}}
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 col-sm-6">
@@ -16,7 +15,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Matches Played</p>
-                                     24
+                                     {{$set['played'][0]->val ?? 0 }}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +40,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Matches Won</p>
-                                     9
+                                     {{$set['won'][0]->val ?? 0 }}                                     
                                 </div>
                             </div>
                         </div>
@@ -66,7 +65,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Matches Lost</p>
-                                     9
+                                     {{$set['lost'][0]->val ?? 0 }}
                                 </div>
                             </div>
                         </div>
@@ -91,7 +90,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Matches Drawn</p>
-                                     9
+                                     {{$set['drawn'][0]->val ?? 0 }}
                                 </div>
                             </div>
                         </div>
@@ -117,7 +116,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Goals Scored</p>
-                                     9
+                                     {{$set['goals'][0]->val ?? 0}}
                                 </div>
                             </div>
                         </div>
@@ -143,7 +142,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Points</p>
-                                     9
+                                     {{$set['points'][0]->val ?? 0}}
                                 </div>
                             </div>
                         </div>
@@ -160,7 +159,6 @@
 
         @include('paper.stats')
         <div class="row">
-
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">

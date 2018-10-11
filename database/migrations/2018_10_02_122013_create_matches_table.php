@@ -17,6 +17,8 @@ class CreateMatchesTable extends Migration
             $table->increments('id');
             $table->integer('home');
             $table->integer('away');
+            $table->integer('home_score')->nullable();
+            $table->integer('away_score')->nullable();
             $table->integer('season_id');
             $table->integer('competition_id');
             $table->date('date');
