@@ -44,7 +44,11 @@
                 <div class="content">
                     <form action="{{ route('articles.store') }}" method="POST">
                           {{ csrf_field() }}
-                       <input id="picurl" name="image" type="hidden">
+                          @php
+                              $arr = array("/banner-1.png", asset('/banner-2.jpg'));
+                              $banner = $arr[array_rand($arr)];
+                          @endphp
+                       <input id="picurl" name="image" type="hidden" value="{{ $banner }}">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">

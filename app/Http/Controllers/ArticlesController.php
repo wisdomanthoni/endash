@@ -40,7 +40,6 @@ class ArticlesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
-            'image' => 'required'
         ]);
 
         $articles = new Article;

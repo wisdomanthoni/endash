@@ -39,10 +39,13 @@ class ClubController extends Controller
     {
          $this->validate($request, [
             'name' => 'required',
-            'image' => 'required'
         ]);
 
-        $image = $this->uploadImage($request);
+        if ($request->image) {
+            $image = $this->uploadImage($request);
+        }else{
+            $image = asset('/icon.png');
+        }
 
         $club = new Club;
         $club->image = $image;
@@ -95,13 +98,8 @@ class ClubController extends Controller
         $club = Club::findorfail($id);
         $club->name = $request->input('name');
         
-        
         if ($request->image) {
-            $pic = $request->file('image');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $filename = 'club' . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/clubs', $filename, 'public');
-            $club->image = '/' . $picUrl;
+            $club->image = $this->uploadImage($request);;
         }
 
         $club->save();

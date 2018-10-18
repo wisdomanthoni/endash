@@ -45,7 +45,6 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required',
-            'image' => 'required'
         ]);
 
 
@@ -113,7 +112,6 @@ class PlayersController extends Controller
             'squad_number' => 'required',
             'date_of_birth' => 'required',
             'previous_club' => 'required',
-            'image' => 'required'
         ]);
 
 

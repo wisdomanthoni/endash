@@ -41,10 +41,13 @@ class CompController extends Controller
             'name' => 'required',
             'start' => 'required',
             'end'   => 'required',
-            'image' => 'required'
         ]);
 
-        $image = $this->uploadImage($request);
+        if ($request->image) {
+            $image = $this->uploadImage($request);
+        } else {
+            $image = asset('/icon.png');
+        }
 
         $comp = new Competition;
         $comp->image = $image;
@@ -105,12 +108,9 @@ class CompController extends Controller
         $comp->end = $request->input('end');
 
         if ($request->image) {
-            $pic = $request->file('image');
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $filename = 'competition' . '-' . time() . '.' . $extension;
-            $picUrl = $pic->storeAs('/public/competitions', $filename, 'public');
-            $comp->image = '/' . $picUrl;
+            $comp->image = $this->uploadImage($request);;
         }
+
         $comp->save();
 
         $notification = array(
