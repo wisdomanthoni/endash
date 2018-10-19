@@ -64,6 +64,20 @@ return [
             'url' => env('AWS_URL', 'https://s3.amazonaws.com/enyimbafc'),
         ],
 
+        'upload' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST', 'ftp.example.com'),
+            'username' => env('FTP_USER', 'username'),
+            'password' => env('FTP_KEY', 'password'),
+            // Optional FTP Settings...
+            // 'port'     => 21,
+            // 'root' => '/Example',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
+        ],
+
+
     ],
 
 ];
