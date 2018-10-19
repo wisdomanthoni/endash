@@ -17,7 +17,7 @@
                 <div class="content">
                     <form method="POST" action="{{ route('matches.update', $match->id) }}">
                         {{ csrf_field() }}
-                        {{method_field('POST')}}
+                        {{method_field('PUT')}}
 
                         <div class="row">
                             <div class="col-md-4">
@@ -46,6 +46,27 @@
                                 </div>
                             </div>
                             
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="text" name="home_score" value="{{$match->home_score ?? null }}" class="form-control  border-input" placeholder="Home Team Score">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <input type="text" name="away_score" value="{{$match->away_score ?? null}}" class="form-control  border-input" placeholder="Away Team Score">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label><br></label>
+                                    <br>
+                                </div>   
+                            </div>
                         </div>
 
                         <div class="row">
@@ -91,9 +112,10 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn btn-info btn-fill btn-wd">Create Match</button>
+                            <button type="submit" class="btn btn-info btn-fill btn-wd">Update Match</button>
                         </div>
                         <div class="clearfix"></div>
+
                     </form>
                 </div>
             </div>

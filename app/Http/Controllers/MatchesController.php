@@ -118,7 +118,7 @@ class MatchesController extends Controller
             'competition' => 'required'
         ]);
         $datetime = Carbon::parse($request->date . $request->time);
-        //dd($date);
+
         $matches = Match::findorfail($id);
         $matches->home = $request->home;
         $matches->away = $request->away;
